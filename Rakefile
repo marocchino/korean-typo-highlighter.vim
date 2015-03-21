@@ -7,6 +7,11 @@ task :build do
     f.puts "function! AutoCorrectKo()"
     words = YAML.load_file('words.yml')
     words.each do |right, wrongs|
+      wrongs.each do |wrong|
+        f.puts "syn match Error '#{wrong}'"
+      end
+    end
+    words.each do |right, wrongs|
       f.puts "Abolish #{right}#{has_final?(right) ? WITHOUT_FINAL : WITH_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
       wrongs.each do |wrong|
         f.puts "Abolish #{wrong}#{WITHOUT_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
