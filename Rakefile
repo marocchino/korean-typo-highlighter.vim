@@ -11,13 +11,13 @@ task :build do
         f.puts "syn match Error '#{wrong}'"
       end
     end
-    words.each do |right, wrongs|
-      f.puts "Abolish #{right}#{has_final?(right) ? WITHOUT_FINAL : WITH_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
-      wrongs.each do |wrong|
-        f.puts "Abolish #{wrong}#{WITHOUT_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
-        f.puts "Abolish #{wrong}#{WITH_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
-      end
-    end
+    # words.each do |right, wrongs|
+    #   f.puts "Abolish #{right}#{has_final?(right) ? WITHOUT_FINAL : WITH_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
+    #   wrongs.each do |wrong|
+    #     f.puts "Abolish #{wrong}#{WITHOUT_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
+    #     f.puts "Abolish #{wrong}#{WITH_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
+    #   end
+    # end
     f.puts "endfunction"
   end
 end
