@@ -1,4 +1,4 @@
-function! AutoCorrectKo()
+function! KoreanTypoHighlight()
 syn match Error '가그'
 syn match Error '가글'
 syn match Error '가르바지'

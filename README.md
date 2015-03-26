@@ -1,16 +1,16 @@
-# autocorrect-ko-vim
+# KoreanTypoHighlighter
 
-번역할 때 자주 틀리는 단어를 Abolish에 넣습니다.
-넣긴 합니다만 cjk 문제인지 교정될 때와 안될 때가 있어서 일단은 틀린 단어를
-하이라이팅하게 해두었습니다.
+틀린 외래어를 하이라이팅 해줍니다.
 
 이 프로젝트는 [panozzaj/vim-autocorrect](https://github.com/panozzaj/vim-autocorrect)를
 참고해 만들었습니다.
 
 ## 사용법
 
+`.vimrc`에 밑의 내용을 추가합니다.
+
 ```viml
-autocmd BufEnter *.md call AutoCorrectKo()
+autocmd BufEnter *.md call KoreanTypoHighlight()
 ```
 
 ## 기여하기
