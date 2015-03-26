@@ -6,10 +6,9 @@ task :build do
   File.open("plugin/autocorrect-ko.vim", "w") do  |f|
     f.puts "function! AutoCorrectKo()"
     words = YAML.load_file('words.yml')
-    words.each do |right, wrongs|
-      wrongs.each do |wrong|
-        f.puts "syn match Error '#{wrong}'"
-      end
+    wrongs = words.flat_map { |_, ws| ws }.sort.uniq
+    wrongs.each do |wrong|
+      f.puts "syn match Error '#{wrong}'"
     end
     # words.each do |right, wrongs|
     #   f.puts "Abolish #{right}#{has_final?(right) ? WITHOUT_FINAL : WITH_FINAL} #{right}#{has_final?(right) ? WITH_FINAL : WITHOUT_FINAL}"
