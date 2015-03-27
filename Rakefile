@@ -11,3 +11,5 @@ task :build do
     f.puts "endfunction"
   end
 end
+
+task default: :build
